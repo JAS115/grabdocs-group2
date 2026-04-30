@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
@@ -10,13 +10,18 @@ export default defineConfig({
 
   use: {
     trace: 'on-first-retry',
+    viewport: null,
+    launchOptions: {
+      args: ['--start-maximized'],
+    },
   },
 
   projects: [
     {
       name: 'chromium',
       use: {
-        ...devices['Desktop Chrome'],
+        browserName: 'chromium',
+        viewport: null,
         launchOptions: {
           args: ['--start-maximized'],
         },
@@ -25,7 +30,8 @@ export default defineConfig({
     {
       name: 'firefox',
       use: {
-        ...devices['Desktop Firefox'],
+        browserName: 'firefox',
+        viewport: null,
         launchOptions: {
           args: ['--start-maximized'],
         },
@@ -34,7 +40,8 @@ export default defineConfig({
     {
       name: 'webkit',
       use: {
-        ...devices['Desktop Safari'],
+        browserName: 'webkit',
+        viewport: null,
         launchOptions: {
           args: ['--start-maximized'],
         },
