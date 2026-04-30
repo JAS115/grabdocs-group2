@@ -10,8 +10,6 @@ export default defineConfig({
 
   use: {
     trace: 'on-first-retry',
-    // ❗ No viewport: null here
-    // ❗ No launchOptions here
   },
 
   projects: [
@@ -19,7 +17,6 @@ export default defineConfig({
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
-        // ❗ Do NOT add viewport: null here
         launchOptions: {
           args: ['--start-maximized'],
         },
